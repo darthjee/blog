@@ -4,6 +4,7 @@ default: &default
   encoding: utf-8
   username: postgres
   password: postgres
+  adapter: postgresql
   pool: 5
 
 development: &development
@@ -22,7 +23,6 @@ production:
   host: ec2-23-23-95-222.compute-1.amazonaws.com
   username: hozruppisalvil
   password: yDni5CvJHARhtJsJhR-YU6s274
-  adapter: postgresql
 
 cucumber:
   <<: *test
