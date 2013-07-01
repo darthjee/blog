@@ -1,7 +1,7 @@
 Blog::Application.routes.draw do
   resources :posts
 
-  root :to => "posts#index"
+  root :controller => :posts, :action => :index
 
 
   # The priority is based upon order of creation:
