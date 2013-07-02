@@ -5,4 +5,8 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :title, :body
   validates_uniqueness_of :title
+
+  def body_html
+    BlueCloth.new(self.body).to_html.html_safe
+  end
 end

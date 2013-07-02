@@ -9,6 +9,12 @@ gem 'rake', '10.1.0'
 
 gem 'newrelic_rpm'
 gem 'pg'
+gem 'bluecloth'
+
+
+group :development, :test do
+  gem 'debugger'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
