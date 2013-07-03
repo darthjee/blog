@@ -3,7 +3,7 @@ Blog::Application.routes.draw do
   resources :comments
   end
 
-  root :controller => :posts, :action => :index
+  root :controller => :posts, :action => :list
 
 
   # The priority is based upon order of creation:

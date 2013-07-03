@@ -10,6 +10,16 @@ class PostsController < ApplicationController
     end
   end
 
+  # GET /posts/list
+  def list
+    @posts = Post.all(:order=>:created_at)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
