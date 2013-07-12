@@ -10,7 +10,8 @@ gem 'rake', '10.1.0'
 gem 'newrelic_rpm'
 gem 'pg'
 gem 'bluecloth'
-
+gem 'execjs'
+gem 'therubyracer'
 
 group :development, :test do
   gem 'debugger'
