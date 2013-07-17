@@ -1,5 +1,5 @@
 default: &default
-  database: dj_blog<%= ENV['BUILD_SUFIX'] %>
+  database: cris_blog<%= ENV['BUILD_SUFIX'] %>
   host: localhost
   encoding: utf-8
   username: postgres
@@ -15,14 +15,14 @@ development: &development
 # Do not set this db to the same as development or production.
 test: &test
   <<: *development
-  database: dj_blog<%= ENV['BUILD_SUFIX'] %><%= ENV['TEST_ENV_NUMBER'] %>
+  database: cris_blog<%= ENV['BUILD_SUFIX'] %><%= ENV['TEST_ENV_NUMBER'] %>
 
 production:
   <<: *default
-  database: d7qlo1qvln4v3v
-  host: ec2-23-23-95-222.compute-1.amazonaws.com
-  username: hozruppisalvil
-  password: yDni5CvJHARhtJsJhR-YU6s274
+  database: <%= ENV['DATABASE'] %>
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 cucumber:
   <<: *test
