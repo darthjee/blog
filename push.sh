@@ -1,5 +1,4 @@
-for SERVER in origin heroku; do
-  git push -f $SERVER HEAD:cris
-done
+git push -f origin cris
+git push -f heroku cris:master
 
 heroku run rake db:migrate
