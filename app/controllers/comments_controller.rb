@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @post_id = params[:post_id]
+    @comments = Comment.where(:post_id => @post_id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +25,8 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.json
   def new
-    @comment = Comment.new
+    @post = Post.find params[:post_id]
+    @comment = Comment.new :post_id => @post.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +37,14 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
+    post_id = params[:post_id]
   end
 
   # POST /comments
   # POST /comments.json
   def create
     @comment = Comment.new(params[:comment])
+    @comment.post = @post
 
     respond_to do |format|
       if @comment.save
@@ -72,6 +76,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    @post = Post.find params[:post_id]
     @comment = Comment.find(params[:id])
     @comment.destroy
 
